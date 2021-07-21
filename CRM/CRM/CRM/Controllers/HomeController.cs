@@ -68,13 +68,11 @@ namespace CRM.Controllers
             return Index();
         }
 
-        public ActionResult Gotohome()
+        public ActionResult Newuser()
         {
-
-
-
-            return Redirect("~/Home");
+           
+            return View();
         }
-        
+
     }
 }

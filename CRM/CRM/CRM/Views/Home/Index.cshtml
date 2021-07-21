@@ -1,0 +1,75 @@
+﻿@model CRM.Models.Profile
+
+@{
+    ViewBag.Title = "Home Page";
+}
+<script>
+    
+
+
+</script>
+
+
+<div class="row">
+    <br/>
+    <br/>
+    <table style="width: 80%" border="2px" align="center">
+        <tr>
+            <th>@Html.LabelFor(a => a.Fname)</th>
+            <th>@Html.LabelFor(a => a.Lname)</th>
+            <th>@Html.LabelFor(a => a.Phonenumber)</th>
+            <th>@Html.LabelFor(a => a.Emailaddress)</th>
+
+
+        </tr>
+        @{
+           
+
+            foreach (var vr in ViewBag.data1)
+            {
+                <tr>
+                    <td>@vr.Fname</td>
+                    <td>@vr.Lname</td>
+                    <td>@vr.Phonenumber</td>
+                    <td>@vr.Emailaddress</td>
+                    <td><a href="../Home/Edit/@vr.Id"> Edit</a></td>
+                    <td><a href="#" title="delete" class="delete" onclick="return confirm('Are you sure you want to delete this item')">Delete</a> </td>
+                    
+
+
+                </tr>
+            }
+        }
+      
+    </table>
+</div>
+
+
+    
+
+
+@*var x = confirm("Are you sure you want to delete?");
+if (x) $.ajax({
+type: "DELETE",
+url: "../CRM/Home/Delete/" + $(".deleteUser").data('id')
+})*@
+
+
+
+@*<td><a href="../Home/Delete/@vr.Id" title="delete" class="delete" onclick="ConfirmDelete(@vr.Id)">Delete</a></td>*@
+
+@*<script type="text/javascript">
+    document.getElementById("btndel").onclick = function () {
+        //logic to delete in DB
+        location.href = "../Index";
+    };
+</script>*@
+
+@*function ConfirmDelete()
+{
+var x = confirm("Are you sure you want to delete?");
+if (x)
+return true;
+else
+return false;
+}*@

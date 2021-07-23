@@ -52,36 +52,56 @@ namespace CRM.Controllers
             return RedirectToAction("index");
 
         }
+       
         public ActionResult Edit(int Id = 1)
         {
-            ProfileDataModel Pd = new ProfileDataModel();
-            List<ProfileDataModel> pdList = new List<ProfileDataModel>();
-            pdList.Add(Pd);
-            foreach (var var in pdList )
-            {
-                if (var.UserId == Id)
-                {
-                    return View(var);// matching the data coming from id to the viewbag data
-                }
-            }
+            
 
-            return View();
+            Profile pr = new Profile();
+            pr.UpdateUserprofile(Id);
+            return RedirectToAction("index");
         }
+        
 
 
         public ActionResult Delete(int Id)
         {
-
-
-
+            Profile pr = new Profile();
+            pr.DeleteUserProfile(Id);
             return RedirectToAction("index");
+
         }
 
         public ActionResult Newuser()
         {
+
 
             return View();
         }
 
     }
 }
+
+
+//Profiledatamodel Profiledata = new Profiledatamodel();
+//return View(Profiledata.List().Find(model => model.Id == Id);
+//profile.UpdateUserprofile(Id);
+//var profile = new Profile().
+//ViewBag.Profile = profile;
+
+
+//public ActionResult Edit(int Id = 1)
+//{
+//    ProfileDataModel Pd = new ProfileDataModel();
+//    List<ProfileDataModel> pdList = new List<ProfileDataModel>();
+//    pdList.Add(Pd);
+//    foreach (var var in pdList )
+//    {
+//        if (var.UserId == Id)
+//        {
+//            return View(var);// matching the data coming from id to the viewbag data
+//        }
+//    }
+
+//    return View();
+//}

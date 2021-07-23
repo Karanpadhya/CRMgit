@@ -90,7 +90,15 @@ namespace CRM.Data
         {
             Initilize();
             GetUserProfile(id);
+     
         }
+
+        //public Profile (int id)
+        //{
+        //    UpdateUserprofile(id);
+        //}
+
+
         public void GetUserProfile(int id)
         {
             SqlConnection conn = Trans == null ? new SqlConnection(ConnStr) : Trans.Connection;

@@ -6,6 +6,8 @@ using System.Linq;
 using System.Web;
 using System.Web.UI.WebControls;
 using CRM.Resources;
+using CRM.Data;
+using CRM.Models.Mapping;
 
 
 namespace CRM.Models
@@ -31,13 +33,15 @@ namespace CRM.Models
             public string Email { get; set; }
 
 
-            public IEnumerator GetEnumerator()
-            {
-                throw new NotImplementedException();
-            }
-        
+        public IEnumerator GetEnumerator()
+        {
+            throw new NotImplementedException();
+        }
+
 
 
 
     }
+
+
 }

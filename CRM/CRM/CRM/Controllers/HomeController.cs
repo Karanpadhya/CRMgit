@@ -4,6 +4,7 @@ using System.Globalization;
 using System.Linq;
 using System.Threading;
 using System.Web;
+using System.Web.Configuration;
 using System.Web.Mvc;
 using CRM.Data;
 using CRM.Models;
@@ -20,12 +21,17 @@ namespace CRM.Controllers
             if (id !=null)
             {
                 var profile = new Profile(id.Value).Map();
+                ViewBag.Profile = profile;
             }
             else
             {
                 var profiles = new Profile().List().Select(a=>a.Map()).ToList();
+                ViewBag.Profiles = profiles;
+
+
             }
-            return View();
+          return View();
+
         }
 
         protected override IAsyncResult BeginExecuteCore(AsyncCallback callback, object state)
@@ -46,7 +52,7 @@ namespace CRM.Controllers
             return RedirectToAction("index");
 
         }
-        public ActionResult Edit(int Id=1)
+        public ActionResult Edit(int Id = 1)
         {
             ProfileDataModel Pd = new ProfileDataModel();
             List<ProfileDataModel> pdList = new List<ProfileDataModel>();
@@ -63,19 +69,19 @@ namespace CRM.Controllers
         }
 
 
-        //public ActionResult Delete(int Id)
-        //{
+        public ActionResult Delete(int Id)
+        {
 
-           
 
-        //    return Index();
-        //}
 
-        //public ActionResult Newuser()
-        //{
-           
-        //    return View();
-        //}
+            return RedirectToAction("index");
+        }
+
+        public ActionResult Newuser()
+        {
+
+            return View();
+        }
 
     }
 }

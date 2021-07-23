@@ -12,55 +12,73 @@
     <title>Create a new User</title>
 </head>
 <body>
-<div class="row">
-    <br />
-    <br />
-    <table style="width: 50%"  align="left">
-        <tr>
-            <th>@Html.LabelFor(a => a.FName)</th>
+    @using (Html.BeginForm("Newuser", "Home", FormMethod.Post))
+    {
+        <div class="row">
+            <br/>
+            <br/>
+            <table style="width: 50%" align="left">
+                <tr>
+                    <th>@Html.LabelFor(a => a.FName)</th>
 
 
-            <td>@Html.TextBoxFor(a => a.FName)</td>
-        </tr>
-        <tr>
-            <th>@Html.LabelFor(a => a.LName)</th>
+                    <td>
+                        @Html.TextBoxFor(a => a.FName)
+                        @Html.ValidationMessageFor(a => a.FName)
+                                    </td>
+                </tr>
+                <tr>
+                    <th>@Html.LabelFor(a => a.LName)</th>
 
-            <td>@Html.TextBoxFor(a => a.LName)</td>
-        </tr>
-        <tr>
-            <th>@Html.LabelFor(a => a.PhoneNo)</th>
+                    <td>
+                        @Html.TextBoxFor(a => a.LName)
+                         @Html.ValidationMessageFor(a => a.LName)
+                                    </td>
+                </tr>
+                <tr>
+                    <th>@Html.LabelFor(a => a.PhoneNo)</th>
 
-            <td>@Html.TextBoxFor(a => a.PhoneNo)</td>
-        </tr>
-        <tr>
-            <th>@Html.LabelFor(a => a.Email)</th>
+                    <td>
+                        @Html.TextBoxFor(a => a.PhoneNo)
+                         @Html.ValidationMessageFor(a => a.PhoneNo)
+                                    </td>
+                </tr>
+                <tr>
+                    <th>@Html.LabelFor(a => a.Email)</th>
 
-            <td>@Html.TextBoxFor(a => a.Email)</td>
-        </tr>
+                    <td>
+                        @Html.TextBoxFor(a => a.Email)
+                       @Html.ValidationMessageFor(a => a.Email)
+                        </td>
+                </tr>
 
 
-    </table>
-</div>
-<div>
-    <br />
-    <button id="btnsave">Save</button>
-    <script type="text/javascript">
-        document.getElementById("btnsave").onclick = function () {
-            //logic to save in DB
-            location.href = "../Index";
-        };
-    </script>
+            </table>
+        </div>
+        <div>
+            <br/>
+            <button id="btnsave">Save</button>
+            <script type="text/javascript">
+                document.getElementById("btnsave").onclick = function() {
+                    //logic to save in DB
+                    location.href = "../Index";
+                };
+            </script>
 
-    <button id="myButton">Home</button>
+            
 
-    <script type="text/javascript">
-        document.getElementById("myButton").onclick = function () {
+           
 
-            location.href = "../Home/Index";
-        };
-    </script>
+        </div>
+       
+    }
+<button id="myButton">Home</button>
+<script type="text/javascript">
+    document.getElementById("myButton").onclick = function() {
 
-</div>
+        location.href = "../Home/Index";
+    };
+</script> 
 
 </body>
 </html>

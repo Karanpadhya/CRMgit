@@ -12,18 +12,10 @@ namespace CRM.Controllers
     public class HomeController : Controller
     {
 
-        List<Profile> pr = new List<Profile>()
-        {
-            new Profile() {Id = 1, Fname = "KAran", Lname = "Padhya", Phonenumber = 226, Emailaddress = "Emailadress"},
-            new Profile() {Id = 2, Fname = "Dhruvin", Lname = "kanani", Phonenumber = 226, Emailaddress = "Emailadress"},
-            new Profile() {Id = 3, Fname = "xyz", Lname = "abc", Phonenumber = 226, Emailaddress = "Emailadress"},
-            new Profile() {Id = 4, Fname = "pqr", Lname = "svasd", Phonenumber = 226, Emailaddress = "Emailadress"}
-
-        };
 
         public ActionResult Index()
         {
-            ViewBag.data1 = pr;
+            
             return View();
         }
 
@@ -47,10 +39,12 @@ namespace CRM.Controllers
         }
         public ActionResult Edit(int Id=1)
         {
-            
-            foreach (var var in pr)
+            ProfileDataModel Pd = new ProfileDataModel();
+            List<ProfileDataModel> pdList = new List<ProfileDataModel>();
+            pdList.Add(Pd);
+            foreach (var var in pdList )
             {
-                if (var.Id == Id)
+                if (var.UserId == Id)
                 {
                     return View(var);// matching the data coming from id to the viewbag data
                 }

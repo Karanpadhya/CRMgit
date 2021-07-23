@@ -1,4 +1,4 @@
-﻿@model CRM.Models.Profile
+﻿@model CRM.Models.ProfileDataModel
 
 @{
     ViewBag.Title = "Edit";
@@ -17,27 +17,27 @@
 <div class="row">
     <br />
     <br />
-    <table style="width: 50%" border="2px" align="left">
+    <table style="width: 50%"  align="left">
         <tr>
-            <th>@Html.LabelFor(a => a.Fname)</th>
+            <th>@Html.LabelFor(a => a.FName)</th>
 
 
-            <td>@Html.TextBoxFor(a => a.Fname)</td>
+            <td>@Html.TextBoxFor(a => a.FName)</td>
         </tr>
         <tr>
-            <th>@Html.LabelFor(a => a.Lname)</th>
+            <th>@Html.LabelFor(a => a.LName)</th>
 
-            <td>@Html.TextBoxFor(a => a.Lname)</td>
+            <td>@Html.TextBoxFor(a => a.LName)</td>
         </tr>
         <tr>
-            <th>@Html.LabelFor(a => a.Phonenumber)</th>
+            <th>@Html.LabelFor(a => a.PhoneNo)</th>
 
-            <td>@Html.TextBoxFor(a => a.Phonenumber)</td>
+            <td>@Html.TextBoxFor(a => a.PhoneNo)</td>
         </tr>
         <tr>
-            <th>@Html.LabelFor(a => a.Emailaddress)</th>
+            <th>@Html.LabelFor(a => a.Email)</th>
 
-            <td>@Html.TextBoxFor(a => a.Emailaddress)</td>
+            <td>@Html.TextBoxFor(a => a.Email)</td>
         </tr>
 
 

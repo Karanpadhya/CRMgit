@@ -63,36 +63,36 @@ namespace CRM.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Email.
         /// </summary>
-        public static string Emailaddress {
+        public static string Email {
             get {
-                return ResourceManager.GetString("Emailaddress", resourceCulture);
+                return ResourceManager.GetString("Email", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to First name.
         /// </summary>
-        public static string Fname {
+        public static string FName {
             get {
-                return ResourceManager.GetString("Fname", resourceCulture);
+                return ResourceManager.GetString("FName", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Last name.
         /// </summary>
-        public static string Lname {
+        public static string LName {
             get {
-                return ResourceManager.GetString("Lname", resourceCulture);
+                return ResourceManager.GetString("LName", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Phone number .
         /// </summary>
-        public static string Phonenumber {
+        public static string PhoneNumber {
             get {
-                return ResourceManager.GetString("Phonenumber", resourceCulture);
+                return ResourceManager.GetString("PhoneNumber", resourceCulture);
             }
         }
     }

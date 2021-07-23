@@ -1,19 +1,41 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
+using CRM.Resources;
 
 namespace CRM.Models
 {
-    public class ProfileDataModel
+    public class ProfileDataModel : IEnumerable
     {
-        public int UserId { get; set; }
+        
+            [Required]
+            public int UserId { get; set; }
 
-        public int FName { get; set; }
+            [Required]
+            [Display(ResourceType = typeof(Resource), Name = "FName")]
+            public string FName { get; set; }
+            [Required]
+            [Display(ResourceType = typeof(Resource), Name = "LName")]
+            public string LName { get; set; }
+            [Required]
+            [Display(ResourceType = typeof(Resource), Name = "PhoneNumber")]
+            public int PhoneNo { get; set; }
 
-        public int LName { get; set; }
+            [Required]
+            [Display(ResourceType = typeof(Resource), Name = "Email")]
+            public string Email { get; set; }
 
-        public string Name => $"{FName} {LName}";
+
+            public IEnumerator GetEnumerator()
+            {
+                throw new NotImplementedException();
+            }
+        
+
+
 
     }
 }

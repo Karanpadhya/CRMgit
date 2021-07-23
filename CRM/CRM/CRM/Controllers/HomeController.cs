@@ -5,7 +5,9 @@ using System.Linq;
 using System.Threading;
 using System.Web;
 using System.Web.Mvc;
+using CRM.Data;
 using CRM.Models;
+using CRM.Models.Mapping;
 
 namespace CRM.Controllers
 {
@@ -13,9 +15,16 @@ namespace CRM.Controllers
     {
 
 
-        public ActionResult Index()
+        public ActionResult Index(int? id)
         {
-            
+            if (id !=null)
+            {
+                var profile = new Profile(id.Value).Map();
+            }
+            else
+            {
+                var profiles = new Profile().List().Select(a=>a.Map()).ToList();
+            }
             return View();
         }
 
@@ -54,19 +63,19 @@ namespace CRM.Controllers
         }
 
 
-        public ActionResult Delete(int Id)
-        {
+        //public ActionResult Delete(int Id)
+        //{
 
            
 
-            return Index();
-        }
+        //    return Index();
+        //}
 
-        public ActionResult Newuser()
-        {
+        //public ActionResult Newuser()
+        //{
            
-            return View();
-        }
+        //    return View();
+        //}
 
     }
 }

@@ -172,3 +172,6 @@ C:\Users\Karan Padhya\Desktop\DevOps\CRMgit\CRM\CRM\CRM\obj\Debug\fr\CRM.resourc
 C:\Users\Karan Padhya\Desktop\DevOps\CRMgit\CRM\CRM\CRM\obj\Debug\CRM.csproj.CopyComplete
 C:\Users\Karan Padhya\Desktop\DevOps\CRMgit\CRM\CRM\CRM\obj\Debug\CRM.dll
 C:\Users\Karan Padhya\Desktop\DevOps\CRMgit\CRM\CRM\CRM\obj\Debug\CRM.pdb
+C:\Users\Karan Padhya\Desktop\DevOps\CRMgit\CRM\CRM\CRM\bin\CRMData.dll
+C:\Users\Karan Padhya\Desktop\DevOps\CRMgit\CRM\CRM\CRM\bin\CRMData.pdb
+C:\Users\Karan Padhya\Desktop\DevOps\CRMgit\CRM\CRM\CRM\bin\CRMData.dll.config

@@ -181,7 +181,12 @@
     <Content Include="Views\Home\Edit.cshtml" />
     <Content Include="Views\Home\Newuser.cshtml" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\CRMData\CRMData.csproj">
+      <Project>{f9efbc5d-9c60-47d7-ab95-009242f2a51a}</Project>
+      <Name>CRMData</Name>
+    </ProjectReference>
+  </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

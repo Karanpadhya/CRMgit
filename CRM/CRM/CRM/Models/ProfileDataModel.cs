@@ -4,7 +4,9 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
+using System.Web.UI.WebControls;
 using CRM.Resources;
+
 
 namespace CRM.Models
 {
@@ -22,7 +24,7 @@ namespace CRM.Models
             public string LName { get; set; }
             [Required]
             [Display(ResourceType = typeof(Resource), Name = "PhoneNumber")]
-            public int PhoneNo { get; set; }
+            public long PhoneNo { get; set; }
 
             [Required]
             [Display(ResourceType = typeof(Resource), Name = "Email")]

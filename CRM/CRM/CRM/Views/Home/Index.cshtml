@@ -1,6 +1,7 @@
 ﻿@using CRM.Models
 @model CRM.Models.ProfileDataModel
 
+
 @{
     ViewBag.Title = "Home Page";
 }
@@ -24,9 +25,9 @@
 
         </tr>
         @{
-            ProfileDataModel Pd = new ProfileDataModel();
+            
             List<ProfileDataModel> pdList = new List<ProfileDataModel>();
-            pdList.Add(Pd);
+
 
             foreach (var vr in pdList)
             {

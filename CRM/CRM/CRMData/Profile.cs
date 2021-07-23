@@ -28,7 +28,7 @@ namespace CRM.Data
             set;
         }
 
-        private int phoneNo
+        private long phoneNo
         {
             get;
             set;
@@ -43,10 +43,10 @@ namespace CRM.Data
             get;
             set;
         }
-        public string UserId
+        public int UserId
         {
-            get => UserId;
-            set => UserId = value;
+            get => userId;
+            set => userId = value;
         }
         public string FName
         {
@@ -58,7 +58,7 @@ namespace CRM.Data
             get => lname;
             set => lname = value;
         }
-        public int PhoneNo
+        public long PhoneNo
         {
             get => phoneNo;
             set => phoneNo = value;
@@ -111,17 +111,17 @@ namespace CRM.Data
 
             try
             {
-                if(Trans == null ||(Trans.Connection.State & ConnectionState.Open)==0 )    
-                conn.Open();
+                if (Trans == null || (Trans.Connection.State & ConnectionState.Open) == 0)
+                    conn.Open();
                 cmd.ExecuteNonQuery();
 
                 this.fname = Convert.IsDBNull(_fname) ? "" : _fname.Value.ToString();
                 this.lname = Convert.IsDBNull(_lname) ? "" : _lname.Value.ToString();
-                this.phoneNo =Convert.ToInt32(_phoneNo);
+                this.phoneNo = Convert.ToInt32(_phoneNo);
                 this.email = Convert.IsDBNull(_email) ? "" : _email.Value.ToString();
                 this.addressId = Convert.ToInt32(_addressId); //ahiya trigger mukvi padse
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 throw new Exception(ex.Message);
             }
@@ -131,128 +131,128 @@ namespace CRM.Data
             }
         }
 
-        public void UpdateUserprofile(int id)
-        {
-            SqlConnection conn = Trans == null ? new SqlConnection(ConnStr) : Trans.Connection;
-            SqlCommand cmd = new SqlCommand("UpdateUserProfile", conn);
-            cmd.CommandType = CommandType.StoredProcedure;
+        //public void UpdateUserprofile(int id)
+        //{
+        //    SqlConnection conn = Trans == null ? new SqlConnection(ConnStr) : Trans.Connection;
+        //    SqlCommand cmd = new SqlCommand("UpdateUserProfile", conn);
+        //    cmd.CommandType = CommandType.StoredProcedure;
 
-           SqlParameter _fname = cmd.Parameters.Add("@Fname", SqlDbType.NVarChar, 100);
-            _fname.Direction = ParameterDirection.Output;
-            SqlParameter _lname = cmd.Parameters.Add("@Lname", SqlDbType.NVarChar, 100);
-            _lname.Direction = ParameterDirection.Output;
-            SqlParameter _phoneNo = cmd.Parameters.Add("@phoneNo", SqlDbType.Int, 100);
-            _phoneNo.Direction = ParameterDirection.Output;
-            SqlParameter _email = cmd.Parameters.Add("@email", SqlDbType.NVarChar, 100);
-            _email.Direction = ParameterDirection.Output;
-            SqlParameter _addressId = cmd.Parameters.Add("@addressId", SqlDbType.Int, 100);
-            _addressId.Direction = ParameterDirection.Output;
-
-
-            try
-            {
-                if(Trans == null ||(Trans.Connection.State & ConnectionState.Open)==0 )    
-                conn.Open();
-                cmd.ExecuteNonQuery();
-
-                this.fname = Convert.IsDBNull(_fname) ? "" : _fname.Value.ToString();
-                this.lname = Convert.IsDBNull(_lname) ? "" : _lname.Value.ToString();
-                this.phoneNo =Convert.ToInt32(_phoneNo);
-                this.email = Convert.IsDBNull(_email) ? "" : _email.Value.ToString();
-                this.addressId =Convert.ToInt32(_addressId);
-            }
-            catch(Exception ex)
-            {
-                throw new Exception(ex.Message);
-            }
-            finally
-            {
-                conn.Close();
-            }
-        }
+        //   SqlParameter _fname = cmd.Parameters.Add("@Fname", SqlDbType.NVarChar, 100);
+        //    _fname.Direction = ParameterDirection.Output;
+        //    SqlParameter _lname = cmd.Parameters.Add("@Lname", SqlDbType.NVarChar, 100);
+        //    _lname.Direction = ParameterDirection.Output;
+        //    SqlParameter _phoneNo = cmd.Parameters.Add("@phoneNo", SqlDbType.Int, 100);
+        //    _phoneNo.Direction = ParameterDirection.Output;
+        //    SqlParameter _email = cmd.Parameters.Add("@email", SqlDbType.NVarChar, 100);
+        //    _email.Direction = ParameterDirection.Output;
+        //    SqlParameter _addressId = cmd.Parameters.Add("@addressId", SqlDbType.Int, 100);
+        //    _addressId.Direction = ParameterDirection.Output;
 
 
-        public void DeleteUserProfile(int id)
-        {
-            SqlConnection conn = Trans == null ? new SqlConnection(ConnStr) : Trans.Connection;
-            SqlCommand cmd = new SqlCommand("DeleteUserProfile", conn);
-            cmd.CommandType = CommandType.StoredProcedure;
+        //    try
+        //    {
+        //        if(Trans == null ||(Trans.Connection.State & ConnectionState.Open)==0 )    
+        //        conn.Open();
+        //        cmd.ExecuteNonQuery();
 
-            SqlParameter _fname = cmd.Parameters.Add("@Fname", SqlDbType.NVarChar, 100);
-            _fname.Direction = ParameterDirection.Output;
-            SqlParameter _lname = cmd.Parameters.Add("@Lname", SqlDbType.NVarChar, 100);
-            _lname.Direction = ParameterDirection.Output;
-            SqlParameter _phoneNo = cmd.Parameters.Add("@phoneNo", SqlDbType.Int, 100);
-            _phoneNo.Direction = ParameterDirection.Output;
-            SqlParameter _email = cmd.Parameters.Add("@email", SqlDbType.NVarChar, 100);
-            _email.Direction = ParameterDirection.Output;
-            SqlParameter _addressId = cmd.Parameters.Add("@addressId", SqlDbType.Int, 100);
-            _addressId.Direction = ParameterDirection.Output;
-
-
-            try
-            {
-                if(Trans == null ||(Trans.Connection.State & ConnectionState.Open)==0 )    
-                conn.Open();
-                cmd.ExecuteNonQuery();
-
-                this.fname = Convert.IsDBNull(_fname) ? "" : _fname.Value.ToString();
-                this.lname = Convert.IsDBNull(_lname) ? "" : _lname.Value.ToString();
-                this.phoneNo = Convert.ToInt32(_phoneNo);
-                this.email = Convert.IsDBNull(_email) ? "" : _email.Value.ToString();
-                this.addressId = Convert.ToInt32(_addressId);
-            }
-            catch(Exception ex)
-            {
-                throw new Exception(ex.Message);
-            }
-            finally
-            {
-                conn.Close();
-            }
-        }
-
-        public void CreateUserProfile(int id)
-        {
-            SqlConnection conn = Trans == null ? new SqlConnection(ConnStr) : Trans.Connection;
-            SqlCommand cmd = new SqlCommand("CreateUserProfile", conn);
-            cmd.CommandType = CommandType.StoredProcedure;
-
-            SqlParameter _fname = cmd.Parameters.Add("@Fname", SqlDbType.NVarChar, 100);
-            _fname.Direction = ParameterDirection.Output;
-            SqlParameter _lname = cmd.Parameters.Add("@Lname", SqlDbType.NVarChar, 100);
-            _lname.Direction = ParameterDirection.Output;
-            SqlParameter _phoneNo = cmd.Parameters.Add("@phoneNo", SqlDbType.Int, 100);
-            _phoneNo.Direction = ParameterDirection.Output;
-            SqlParameter _email = cmd.Parameters.Add("@email", SqlDbType.NVarChar, 100);
-            _email.Direction = ParameterDirection.Output;
-            SqlParameter _addressId = cmd.Parameters.Add("@addressId", SqlDbType.Int, 100);
-            _addressId.Direction = ParameterDirection.Output;
+        //        this.fname = Convert.IsDBNull(_fname) ? "" : _fname.Value.ToString();
+        //        this.lname = Convert.IsDBNull(_lname) ? "" : _lname.Value.ToString();
+        //        this.phoneNo =Convert.ToInt32(_phoneNo);
+        //        this.email = Convert.IsDBNull(_email) ? "" : _email.Value.ToString();
+        //        this.addressId =Convert.ToInt32(_addressId);
+        //    }
+        //    catch(Exception ex)
+        //    {
+        //        throw new Exception(ex.Message);
+        //    }
+        //    finally
+        //    {
+        //        conn.Close();
+        //    }
+        //}
 
 
-            try
-            {
-                if(Trans == null ||(Trans.Connection.State & ConnectionState.Open)==0 )    
-                conn.Open();
-                cmd.ExecuteNonQuery();
+        //public void DeleteUserProfile(int id)
+        //{
+        //    SqlConnection conn = Trans == null ? new SqlConnection(ConnStr) : Trans.Connection;
+        //    SqlCommand cmd = new SqlCommand("DeleteUserProfile", conn);
+        //    cmd.CommandType = CommandType.StoredProcedure;
 
-                this.fname = Convert.IsDBNull(_fname) ? "" : _fname.Value.ToString();
-                this.lname = Convert.IsDBNull(_lname) ? "" : _lname.Value.ToString();
-                this.phoneNo = Convert.ToInt32(_phoneNo);
-                this.email = Convert.IsDBNull(_email) ? "" : _email.Value.ToString();
-                this.addressId = Convert.ToInt32(_addressId);
-            }
-            catch(Exception ex)
-            {
-                throw new Exception(ex.Message);
-            }
-            finally
-            {
-                conn.Close();
-            }
-        }
+        //    SqlParameter _fname = cmd.Parameters.Add("@Fname", SqlDbType.NVarChar, 100);
+        //    _fname.Direction = ParameterDirection.Output;
+        //    SqlParameter _lname = cmd.Parameters.Add("@Lname", SqlDbType.NVarChar, 100);
+        //    _lname.Direction = ParameterDirection.Output;
+        //    SqlParameter _phoneNo = cmd.Parameters.Add("@phoneNo", SqlDbType.Int, 100);
+        //    _phoneNo.Direction = ParameterDirection.Output;
+        //    SqlParameter _email = cmd.Parameters.Add("@email", SqlDbType.NVarChar, 100);
+        //    _email.Direction = ParameterDirection.Output;
+        //    SqlParameter _addressId = cmd.Parameters.Add("@addressId", SqlDbType.Int, 100);
+        //    _addressId.Direction = ParameterDirection.Output;
 
-       public List<Profile> List()
+
+        //    try
+        //    {
+        //        if(Trans == null ||(Trans.Connection.State & ConnectionState.Open)==0 )    
+        //        conn.Open();
+        //        cmd.ExecuteNonQuery();
+
+        //        this.fname = Convert.IsDBNull(_fname) ? "" : _fname.Value.ToString();
+        //        this.lname = Convert.IsDBNull(_lname) ? "" : _lname.Value.ToString();
+        //        this.phoneNo = Convert.ToInt32(_phoneNo);
+        //        this.email = Convert.IsDBNull(_email) ? "" : _email.Value.ToString();
+        //        this.addressId = Convert.ToInt32(_addressId);
+        //    }
+        //    catch(Exception ex)
+        //    {
+        //        throw new Exception(ex.Message);
+        //    }
+        //    finally
+        //    {
+        //        conn.Close();
+        //    }
+        //}
+
+        //public void CreateUserProfile(int id)
+        //{
+        //    SqlConnection conn = Trans == null ? new SqlConnection(ConnStr) : Trans.Connection;
+        //    SqlCommand cmd = new SqlCommand("CreateUserProfile", conn);
+        //    cmd.CommandType = CommandType.StoredProcedure;
+
+        //    SqlParameter _fname = cmd.Parameters.Add("@Fname", SqlDbType.NVarChar, 100);
+        //    _fname.Direction = ParameterDirection.Output;
+        //    SqlParameter _lname = cmd.Parameters.Add("@Lname", SqlDbType.NVarChar, 100);
+        //    _lname.Direction = ParameterDirection.Output;
+        //    SqlParameter _phoneNo = cmd.Parameters.Add("@phoneNo", SqlDbType.Int, 100);
+        //    _phoneNo.Direction = ParameterDirection.Output;
+        //    SqlParameter _email = cmd.Parameters.Add("@email", SqlDbType.NVarChar, 100);
+        //    _email.Direction = ParameterDirection.Output;
+        //    SqlParameter _addressId = cmd.Parameters.Add("@addressId", SqlDbType.Int, 100);
+        //    _addressId.Direction = ParameterDirection.Output;
+
+
+        //    try
+        //    {
+        //        if(Trans == null ||(Trans.Connection.State & ConnectionState.Open)==0 )    
+        //        conn.Open();
+        //        cmd.ExecuteNonQuery();
+
+        //        this.fname = Convert.IsDBNull(_fname) ? "" : _fname.Value.ToString();
+        //        this.lname = Convert.IsDBNull(_lname) ? "" : _lname.Value.ToString();
+        //        this.phoneNo = Convert.ToInt32(_phoneNo);
+        //        this.email = Convert.IsDBNull(_email) ? "" : _email.Value.ToString();
+        //        this.addressId = Convert.ToInt32(_addressId);
+        //    }
+        //    catch(Exception ex)
+        //    {
+        //        throw new Exception(ex.Message);
+        //    }
+        //    finally
+        //    {
+        //        conn.Close();
+        //    }
+        //}
+
+        public List<Profile> List()
         {
             List<Profile> profiles = new List<Profile>();
             StringBuilder sb = new StringBuilder();
@@ -264,7 +264,7 @@ namespace CRM.Data
             try
             {
                
-                    conn.Open();
+                conn.Open();
 
                 SqlDataAdapter sa = new SqlDataAdapter(cmd);
                 DataSet ds = new DataSet();
@@ -278,7 +278,7 @@ namespace CRM.Data
                         fname = dataRow["FName"].ToString(),
                         lname = dataRow["LName"].ToString(),
                         userId = Convert.ToInt32(dataRow["UserId"].ToString()),
-                        phoneNo = Convert.ToInt32(dataRow["PhoneNo"].ToString()),
+                        phoneNo = Convert.ToInt64(dataRow["PhoneNo"].ToString()),
                         email = dataRow["Email"].ToString(),
                         addressId = Convert.ToInt32(dataRow["AddressId"].ToString())
                     };

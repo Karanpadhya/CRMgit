@@ -53,31 +53,36 @@ namespace CRM.Controllers
 
         }
        
-        public ActionResult Edit(int Id = 1)
-        {
-            
-
-            Profile pr = new Profile();
-            pr.UpdateUserprofile(Id);
-            return RedirectToAction("index");
-        }
         
-
-
-        public ActionResult Delete(int Id)
+        public ActionResult Edit(int Id = 4)
         {
-            Profile pr = new Profile();
-            pr.DeleteUserProfile(Id);
-            return RedirectToAction("index");
-
+            var profile = new Profile(Id).Map();
+            //var profile = new Profile().List().Where(a => a.UserId == Id).FirstOrDefault().Map();
+           
+            return View(profile);
         }
+        //[HttpPost]
+        //public ActionResult UpdateResult(int Id)
+        //{
+        //    Profile pr = new Profile();
+        //    pr.UpdateUserprofile(Id);
+        //    return RedirectToAction("index");
+        //}
+        //[HttpPost]
+        //public ActionResult Delete(int Id)
+        //{
+        //    Profile pr = new Profile();
+        //    pr.DeleteUserProfile(Id);
+        //    return RedirectToAction("index");
 
-        public ActionResult Newuser()
-        {
+        //}
+
+        //public ActionResult Newuser()
+        //{
 
 
-            return View();
-        }
+        //    return View();
+        //}
 
     }
 }

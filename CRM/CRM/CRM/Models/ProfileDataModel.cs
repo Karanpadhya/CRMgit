@@ -19,14 +19,14 @@ namespace CRM.Models
             public int UserId { get; set; }
 
             [Required]
-            [Display(ResourceType = typeof(Resource), Name = "FName")]
+            [Display(ResourceType = typeof(Resource), Name = "FName"),]
             public string FName { get; set; }
             [Required]
             [Display(ResourceType = typeof(Resource), Name = "LName")]
             public string LName { get; set; }
             [Required]
             [Display(ResourceType = typeof(Resource), Name = "PhoneNumber")]
-            public long PhoneNo { get; set; }
+            public string PhoneNo { get; set; }
 
             [Required]
             [Display(ResourceType = typeof(Resource), Name = "Email")]

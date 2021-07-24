@@ -31,16 +31,17 @@
             {
                 foreach (var vr in ViewBag.Profiles)
                 {
-                <tr>
-                    <td>@vr.FName</td>
-                    <td>@vr.LName</td>
-                    <td>@vr.PhoneNo</td>
-                    <td>@vr.Email</td>
-                    <td><a href="../Home/Edit/@vr.UserId">Edit</a></td>
-                    <td><a href="../Home/Delete/@vr.UserId" title="delete" class="delete" onclick="ConfirmDelete(@vr.UserId)">Delete</a></td>
-                </tr>
+                    <tr>
+                        <td>@vr.FName</td>
+                        <td>@vr.LName</td>
+                        <td>@vr.PhoneNo</td>
+                        <td>@vr.Email</td>
+                        <td>@Html.ActionLink("Edit","Edit", new { UserId = @vr.UserId })</td>
+                        <td>@Html.ActionLink("Delete", "Delete", new { UserId = @vr.UserId },
+                                new { onclick= "ConfirmDelete()" })</td>
+                    </tr>
                 }
-
+                @*<a href="../Home/Edit/@vr.UserId">Edit</a>*@
             }
             else
             {
@@ -57,8 +58,7 @@
 
             }
             <script>
-                function ConfirmDelete()
-                {
+                function ConfirmDelete() {
                     var x = confirm("Are you sure you want to delete?");
                     if (x)
                         return true;

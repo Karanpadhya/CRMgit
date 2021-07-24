@@ -54,35 +54,47 @@ namespace CRM.Controllers
         }
        
         
-        public ActionResult Edit(int Id = 4)
+        public ActionResult Edit(int Id )
         {
             var profile = new Profile(Id).Map();
             //var profile = new Profile().List().Where(a => a.UserId == Id).FirstOrDefault().Map();
            
             return View(profile);
         }
-        //[HttpPost]
-        //public ActionResult UpdateResult(int Id)
-        //{
-        //    Profile pr = new Profile();
-        //    pr.UpdateUserprofile(Id);
-        //    return RedirectToAction("index");
-        //}
-        //[HttpPost]
-        //public ActionResult Delete(int Id)
-        //{
-        //    Profile pr = new Profile();
-        //    pr.DeleteUserProfile(Id);
-        //    return RedirectToAction("index");
+        [HttpPost]
+        public ActionResult UpdateResult( ProfileDataModel model)
+        {
+            
+            Profile pr = new ProfileDataModel().Map();
+            pr = model.Map();
+            Profile pr1 = new Profile();
+            pr1.UpdateUserprofile(pr);
+            return RedirectToAction("index");
+        }
+        [HttpPost]
+        public ActionResult Delete(int Id)
+        {
+            Profile pr = new Profile();
+            pr.DeleteUserProfile(Id);
+            return RedirectToAction("index");
 
-        //}
+        }
+        
+        public ActionResult Newuser()
+        {
+            
 
-        //public ActionResult Newuser()
-        //{
-
-
-        //    return View();
-        //}
+            return View();
+        }
+        [HttpPost]
+        public ActionResult CreateUser(ProfileDataModel profile)
+        {
+            Profile pr = new ProfileDataModel().Map();
+            pr = profile.Map();
+            Profile pr1 = new Profile();
+            pr1.CreateUserProfile(pr);
+            return RedirectToAction("index");
+        }
 
     }
 }

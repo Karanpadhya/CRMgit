@@ -58,13 +58,13 @@
 
     </div>
     <br/>
-    <button id="btnsave">Save</button>
+
+    @Html.ActionLink("save", "UpdateResult", new{ model = Model },null)
+    @*<button id="btnsave">Save</button>
     <script type="text/javascript">
-        document.getElementById("btnsave").onclick = function() {
-            //logic to  in DB
-            location.href = "../Index";
+        document.getElementById("btnsave").onclick = function () {
         };
-    </script>
+    </script>*@
 
    
 }

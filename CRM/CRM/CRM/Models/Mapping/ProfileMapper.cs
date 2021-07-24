@@ -19,5 +19,17 @@ namespace CRM.Models.Mapping
                 Email = profile.Email
             };
         }
+
+        public static Profile Map(this ProfileDataModel profileDataModel)
+        {
+            return new Profile()
+            {
+                UserId = profileDataModel.UserId,
+                FName = profileDataModel.FName,
+                LName = profileDataModel.LName,
+                PhoneNo = profileDataModel.PhoneNo,
+                Email = profileDataModel.Email
+            };
+        }
     }
 }

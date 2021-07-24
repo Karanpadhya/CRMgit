@@ -72,13 +72,15 @@
         </div>
        
     }
-<button id="myButton">Home</button>
+
+@Html.ActionLink("save","Newuser","Home",new{Model},null)
+@*<button id="myButton">Home</button>
 <script type="text/javascript">
     document.getElementById("myButton").onclick = function() {
 
         location.href = "../Home/Index";
     };
-</script> 
+</script>*@ 
 
 </body>
 </html>
